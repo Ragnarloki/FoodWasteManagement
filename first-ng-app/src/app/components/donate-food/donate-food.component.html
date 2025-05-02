@@ -1,0 +1,68 @@
+<div class="container mt-4 donate-food">
+  <h2 class="text-center mb-4">Donate Food</h2>
+  
+  <!-- Alert Messages -->
+  <div *ngIf="successMessage || errorMessage" class="alert-message">
+    <div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+      <i class="bi bi-check-circle-fill me-2"></i>
+      {{ successMessage }}
+      <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+      <i class="bi bi-exclamation-triangle-fill me-2"></i>
+      {{ errorMessage }}
+      <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+    </div>
+  </div>
+
+  <form (ngSubmit)="onSubmit(foodForm)" #foodForm="ngForm" class="mt-3 donation-form">
+    <!-- Add donor name field (optional) -->
+    <div class="mb-3">
+      <label for="donorName" class="form-label">Your Name (for certificate)</label>
+      <input type="text" class="form-control" id="donorName" 
+             [(ngModel)]="food.donorName" name="donorName">
+    </div>
+
+    <div class="mb-3">
+      <label for="foodType" class="form-label">Food Type <span class="text-danger">*</span></label>
+      <input type="text" class="form-control" id="foodType" 
+             [(ngModel)]="food.foodType" name="foodType" required>
+      <div *ngIf="foodForm.submitted && foodForm.controls['foodType']?.errors" class="text-danger">
+        Food type is required
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="quantity" class="form-label">Quantity <span class="text-danger">*</span></label>
+      <input type="number" class="form-control" id="quantity" 
+             [(ngModel)]="food.quantity" name="quantity" required min="1">
+      <div *ngIf="foodForm.submitted && foodForm.controls['quantity']?.errors" class="text-danger">
+        Valid quantity is required
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="expiryTime" class="form-label">Expiry Date <span class="text-danger">*</span></label>
+      <input type="date" class="form-control" id="expiryTime" 
+             [(ngModel)]="food.expiryTime" name="expiryTime" required>
+      <div *ngIf="foodForm.submitted && foodForm.controls['expiryTime']?.errors" class="text-danger">
+        Expiry date is required
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="location" class="form-label">Location <span class="text-danger">*</span></label>
+      <input type="text" class="form-control" id="location" 
+             [(ngModel)]="food.location" name="location" required>
+      <div *ngIf="foodForm.submitted && foodForm.controls['location']?.errors" class="text-danger">
+        Location is required
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary w-100 donate-btn" [disabled]="isLoading">
+      <span *ngIf="!isLoading">
+        <i class="bi bi-heart-fill me-2"></i>Donate Food
+      </span>
+      <span *ngIf="isLoading">
+        <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+        Processing...
+      </span>
+    </button>
+  </form>
+</div>

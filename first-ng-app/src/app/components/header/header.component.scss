@@ -1,0 +1,209 @@
+// Custom Variables
+$primary-color: #28a745; // Green theme for food management
+$secondary-color: #218838;
+$light-color: #f8f9fa;
+$dark-color: #343a40;
+$navbar-height: 70px;
+$transition-speed: 0.3s;
+
+// Navbar Styles
+.custom-navbar {
+  height: $navbar-height;
+  background: white;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  transition: all $transition-speed ease;
+  padding: 0.5rem 0;
+
+  .container {
+    height: 100%;
+  }
+
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: $primary-color;
+    display: flex;
+    align-items: center;
+    transition: all $transition-speed ease;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: $secondary-color;
+      transition: width $transition-speed ease;
+    }
+
+    &:hover {
+      color: $secondary-color;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  .navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+    transition: all $transition-speed ease;
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2840, 167, 69, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      transition: all $transition-speed ease;
+    }
+
+    &:hover .navbar-toggler-icon {
+      transform: rotate(90deg);
+    }
+  }
+
+  .navbar-nav {
+    .nav-item {
+      margin: 0 0.5rem;
+      position: relative;
+
+      .nav-link {
+        color: $dark-color;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        transition: all $transition-speed ease;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0;
+          height: 2px;
+          background: $primary-color;
+          transition: width $transition-speed ease;
+        }
+
+        &:hover {
+          color: $primary-color;
+
+          &::before {
+            width: 70%;
+          }
+        }
+
+        &.active {
+          color: $primary-color;
+          font-weight: 600;
+
+          &::before {
+            width: 100%;
+            background: $secondary-color;
+          }
+        }
+      }
+    }
+  }
+
+  .btn-outline-primary {
+    color: $primary-color;
+    border-color: $primary-color;
+    transition: all $transition-speed ease;
+
+    &:hover {
+      background: $primary-color;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba($primary-color, 0.3);
+    }
+  }
+
+  .btn-success {
+    background: $primary-color;
+    border: none;
+    transition: all $transition-speed ease;
+
+    &:hover {
+      background: $secondary-color;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba($primary-color, 0.3);
+    }
+  }
+
+  // Mobile menu animation
+  .navbar-collapse {
+    transition: all $transition-speed ease;
+  }
+
+  // Scrolled state
+  &.scrolled {
+    height: 60px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.98);
+
+    .navbar-brand {
+      font-size: 1.3rem;
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: 992px) {
+    .navbar-collapse {
+      position: fixed;
+      top: $navbar-height;
+      left: 0;
+      right: 0;
+      background: white;
+      padding: 1rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      max-height: calc(100vh - #{$navbar-height});
+      overflow-y: auto;
+      transform: translateY(-20px);
+      opacity: 0;
+      visibility: hidden;
+      display: block !important;
+
+      &.show {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .navbar-nav {
+      margin-bottom: 1rem;
+
+      .nav-item {
+        margin: 0.5rem 0;
+
+        .nav-link {
+          padding: 0.75rem 0;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+          &::before {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .d-flex {
+      flex-direction: column;
+      gap: 0.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+
+      .btn {
+        width: 100%;
+        margin: 0 !important;
+      }
+    }
+  }
+}

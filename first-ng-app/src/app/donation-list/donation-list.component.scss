@@ -1,0 +1,65 @@
+.donate-list {
+ 
+  .card {
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 100px;
+    .card-header {
+      background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+      
+      h2 {
+        font-weight: 700;
+        font-size: 1.5rem;
+      }
+    }
+    
+    .food-icon {
+      width: 36px;
+      height: 36px;
+      background-color: rgba(78, 115, 223, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      i {
+        font-size: 1.2rem;
+        color: #4e73df;
+      }
+    }
+    
+    .stat-card {
+      transition: all 0.3s;
+      
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+      
+      h5 {
+        font-weight: 600;
+      }
+    }
+    
+    tr {
+      transition: all 0.2s;
+      
+      &:hover {
+        background-color: rgba(78, 115, 223, 0.05) !important;
+      }
+    }
+    
+    .badge {
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+  }
+  
+  .btn {
+    transition: all 0.2s;
+    
+    &:hover {
+      transform: translateY(-1px);
+    }
+  }
+}

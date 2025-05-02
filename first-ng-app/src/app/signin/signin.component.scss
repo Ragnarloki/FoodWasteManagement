@@ -1,0 +1,308 @@
+@use "sass:color";
+
+// Color Variables
+$primary-color: #4361ee;
+$primary-light: #4cc9f0;
+$dark-color: #2b2d42;
+$light-color: #f8f9fa;
+$text-color: #495057;
+$error-color: #ef233c;
+$success-color: #2ec4b6;
+$border-radius: 12px;
+$transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+// Sign In Page Styles
+.signin-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, $light-color 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+
+  // Decorative elements
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($primary-color, 0.1) 0%, transparent 70%);
+    z-index: 0;
+  }
+
+  &::before {
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+  }
+
+  &::after {
+    bottom: -150px;
+    left: -150px;
+    width: 400px;
+    height: 400px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 70px;
+    flex: 1;
+    padding: 2rem;
+  }
+
+  .signin-card {
+    width: 100%;
+    max-width: 440px;
+    background: #fff;
+    border-radius: $border-radius;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 2.5rem;
+    text-align: center;
+    transition: $transition;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+
+    &:hover {
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    .logo {
+      margin-bottom: 1.5rem;
+      img {
+        height: 48px;
+      }
+    }
+
+    h2 {
+      color: $dark-color;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      font-size: 1.75rem;
+    }
+
+    .subtitle {
+      color: color.scale($text-color, $lightness: 15%);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+      text-align: left;
+      position: relative;
+
+      label {
+        display: block;
+        font-weight: 500;
+        color: $dark-color;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .input-wrapper {
+        position: relative;
+
+        .input-icon {
+          position: absolute;
+          left: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: color.scale($text-color, $lightness: 30%);
+          font-size: 1.1rem;
+        }
+      }
+
+      input {
+        width: 100%;
+        padding: 0.85rem 1rem 0.85rem 2.8rem;
+        border: 1px solid #e9ecef;
+        border-radius: $border-radius;
+        font-size: 0.95rem;
+        transition: $transition;
+        background-color: $light-color;
+
+        &:focus {
+          border-color: $primary-color;
+          outline: none;
+          box-shadow: 0 0 0 3px rgba($primary-color, 0.15);
+          background-color: #fff;
+        }
+
+        &::placeholder {
+          color: color.scale($text-color, $lightness: 40%);
+        }
+      }
+
+      .error-message {
+        color: $error-color;
+        font-size: 0.8rem;
+        margin-top: 0.3rem;
+        display: none;
+      }
+
+      &.has-error {
+        input {
+          border-color: $error-color;
+        }
+        .error-message {
+          display: block;
+        }
+      }
+    }
+
+    .options-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+
+      .remember-me {
+        display: flex;
+        align-items: center;
+
+        input {
+          margin-right: 0.5rem;
+        }
+      }
+
+      .forgot-password {
+        a {
+          color: $primary-color;
+          text-decoration: none;
+          font-weight: 500;
+          transition: $transition;
+
+          &:hover {
+            color: color.scale($primary-color, $lightness: -10%);
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .btn {
+      width: 100%;
+      padding: 0.9rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: $border-radius;
+      transition: $transition;
+      cursor: pointer;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, $primary-color, $primary-light);
+      color: white;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 15px rgba($primary-color, 0.3);
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba($primary-color, 0.4);
+      }
+    }
+
+    .btn-google {
+      background: #fff;
+      color: $text-color;
+      border: 1px solid #e9ecef;
+      margin-bottom: 1.5rem;
+
+      &:hover {
+        background: #f8f9fa;
+        border-color: #dee2e6;
+      }
+
+      .google-icon {
+        color: #db4437;
+        font-size: 1.2rem;
+      }
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 1.5rem 0;
+      color: color.scale($text-color, $lightness: 44%);
+      font-size: 0.85rem;
+
+      &::before, &::after {
+        content: "";
+        flex: 1;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      &::before {
+        margin-right: 1rem;
+      }
+
+      &::after {
+        margin-left: 1rem;
+      }
+    }
+
+    .signup-link {
+      font-size: 0.95rem;
+      color: $text-color;
+
+      a {
+        color: $primary-color;
+        font-weight: 600;
+        text-decoration: none;
+        transition: $transition;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  // Footer
+  .footer {
+    width: 100%;
+    padding: 1.5rem;
+    background: transparent;
+    color: color.scale($text-color, $lightness: 20%);
+    text-align: center;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    margin-top: auto;
+  }
+
+  // Responsive Design
+  @media (max-width: 768px) {
+    .signin-card {
+      padding: 2rem;
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      padding: 1.5rem;
+    }
+
+    .signin-card {
+      padding: 1.75rem;
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .btn {
+        padding: 0.8rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+$primary-color: #4CAF50;
+$border-radius: 12px;
+
+.fullscreen-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; // full vertical height
+    // full width
+  background-color: #f5f5f5; // optional
+}
+
+.map-wrapper {
+ 
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 2px solid $primary-color;
+
+  #map {
+    height: 500px;
+    overflow: hidden;
+    margin-bottom: 20px; // space between map and other elements
+    width: 600px; // or 100% based on preference
+    border-radius: $border-radius;
+  }
+}

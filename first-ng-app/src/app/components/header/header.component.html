@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg custom-navbar">
+  <div class="container">
+    <!-- Brand Logo -->
+    <a class="navbar-brand" routerLink="/">Food Waste Management</a>
+
+    <!-- Toggle Button for Mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+      data-bs-target="#navbarNav" aria-controls="navbarNav" 
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/donate" routerLinkActive="active">Donate Food</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/track" routerLinkActive="active">Track Waste</a>
+        </li>-->
+        <li class="nav-item"> 
+          <a class="nav-link" routerLink="/awareness" routerLinkActive="active">Awareness</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/available" routerLinkActive="active">Available</a>
+        </li>
+       
+
+<!-- 
+        below commanded tags are used when we have to show the links based on the user role -->
+        <!-- <li class="nav-item" *ngIf="authService.getRole() === 'ngo'">
+          <a class="nav-link" routerLink="/donate">Donate Food</a>
+        </li>
+        
+        <li class="nav-item" *ngIf="authService.getRole() === 'volunteer'">
+          <a class="nav-link" routerLink="/available">Available</a>
+        </li> -->
+
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+        </li>
+        
+      </ul>
+
+      <!-- Sign In and Login Buttons -->
+                                  <!-- Inside your navbar HTML -->
+      <div class="d-flex">
+        <div *ngIf="!isLoggedIn; else loggedInTemplate">
+          <button class="btn btn-outline-primary me-2" routerLink="/signin">Sign In</button>
+          <button class="btn btn-success" routerLink="/signup">Sign Up</button>
+        </div>
+
+        <ng-template #loggedInTemplate>
+          <button class="btn btn-danger" (click)="logout()">Logout</button>
+        </ng-template>
+      </div>
+
+    </div>
+  </div>
+</nav>

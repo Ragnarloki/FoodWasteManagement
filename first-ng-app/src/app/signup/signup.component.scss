@@ -1,0 +1,39 @@
+// Variables
+@use "sass:color";
+
+
+$primary-color: #28a745; // Green color representing eco-friendliness
+$background-color: #f8f9fa;
+$card-background: #ffffff;
+$border-radius: 0.5rem;
+$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+// Body Styling
+body {
+  background-color: $background-color;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container{
+  margin-bottom: 150px;
+}
+
+// Sign-Up Card Styling
+.card {
+  background-color: $card-background;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+}
+
+.btn-success {
+  background-color: $primary-color;
+  border-color: $primary-color;
+
+  &:hover {
+    background-color: color.scale($background-color, $lightness: -24.6376811594%);
+    border-color: color.adjust($primary-color, $lightness: -10%)
+  }
+}

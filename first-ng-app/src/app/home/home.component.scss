@@ -1,0 +1,82 @@
+.home-container {
+    .hero {
+      background: url('https://www.ecepl.com/wp-content/uploads/2023/02/WhatsApp-Image-2023-02-14-at-11.30.03-AM-2-1.jpeg') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  
+      h1 {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+  
+      p {
+        font-size: 1.2rem;
+        margin: 10px 0 20px;
+      }
+  
+      .btn-lg {
+        padding: 12px 30px;
+        font-size: 1.2rem;
+      }
+    }
+  
+    .how-it-works {
+      padding: 60px 0;
+      background: #f9f9f9;
+  
+      h2 {
+        margin-bottom: 30px;
+        font-size: 2rem;
+      }
+  
+      .step {
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+  
+        img {
+          width: 80px;
+          margin-bottom: 15px;
+          border-radius: 10px;
+        }
+  
+        h3 {
+          font-size: 1.5rem;
+          color: #28a745;
+        }
+  
+        &:hover {
+          transform: translateY(-5px);
+        }
+      }
+    }
+  
+    .stats {
+      padding: 50px 0;
+      background: #28a745;
+      color: white;
+      bottom: 20px;
+  
+      h2 {
+        margin-bottom: 30px;
+      }
+  
+      h3 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        
+      }
+  
+      p {
+        margin-bottom: 80px;
+        font-size: 1.2rem;
+      }
+    }
+  }
+  
